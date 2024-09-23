@@ -12,6 +12,15 @@ Este código em Haskell cria um servidor web usando o framework Scotty, com endp
 Lê o conteúdo do arquivo texto.txt, onde há uma lista de palavras separadas por vírgulas.
 Separa as palavras, sorteia uma delas aleatoriamente, e a salva em um arquivo palavraSorteada.txt.
 
+```
+sorteiaEsalva :: IO ()
+sorteiaEsalva = do
+  conteudo <- lerArquivo "texto.txt"
+  let listaPalavras = separaPalavra conteudo
+  palavraSorteada <- sorteia listaPalavras
+  salvaPalavra palavraSorteada
+```
+
 ## lerArquivo :: FilePath -> IO String:
 Lê o conteúdo de um arquivo e retorna uma String. É usada para ler arquivos como texto.txt e palavraSorteada.txt.
 
