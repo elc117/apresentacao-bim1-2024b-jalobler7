@@ -138,9 +138,9 @@ sorteia: A função que realiza o sorteio não modifica a lista original, apenas
 ## 3. Composição de Funções
 A programação funcional valoriza a composição de funções menores para formar soluções mais complexas. Embora o código não tenha explicitamente composição usando o operador (.), é possível observar a utilização de funções pequenas e reutilizáveis. Por exemplo:
 
-A função sorteiaEsalva compõe várias funções para formar um comportamento maior: ************* terminar
+A função sorteiaEsalva compõe várias funções para formar um comportamento maior.
 
-Aqui, a função lê o arquivo, separa as palavras, sorteia uma e depois a salva. Cada função executa uma tarefa simples e essas funções são combinadas para formar a lógica completa.
+A função lê o arquivo, separa as palavras, sorteia uma e depois a salva. Cada função executa uma tarefa simples e essas funções são combinadas para formar a lógica completa.
 
 ## 4. Uso de Funções de Alta Ordem
 
