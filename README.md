@@ -146,7 +146,7 @@ A função lê o arquivo, separa as palavras, sorteia uma e depois a salva. Cada
 
 As funções de alta ordem são funções que podem receber outras funções como argumentos ou retornar funções como resultado. No código, isso é observado em:
 - liftIO: Embora não seja uma função definida no código, o uso de liftIO para incorporar funções de I/O em um contexto monádico (dentro de Scotty) é um exemplo do uso de uma função de alta ordem. liftIO é uma função que toma uma ação de I/O e a "eleva" para dentro de um contexto monádico, permitindo que operações de I/O sejam usadas em uma cadeia de funções puramente funcionais.
-- 
+  
 ## 5. Side Effects Controlados
 Outro ponto interessante é como os efeitos colaterais (como leitura e escrita de arquivos) são controlados e isolados no código. Ao usar a monad IO, esses efeitos são mantidos separados da lógica puramente funcional, permitindo que o código seja mais modular e fácil de raciocinar.
 
