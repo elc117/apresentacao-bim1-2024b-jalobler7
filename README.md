@@ -30,7 +30,7 @@ Lê a palavra salva no arquivo palavraSorteada.txt e a retorna.
 ## temLetra :: Char -> IO String:
 Verifica se uma letra fornecida pelo usuário existe na palavra sorteada. Se sim, retorna "Letra Certa"; se não, incrementa o contador de vidas perdidas e retorna "Letra Errada".
 
-## erificaLetra :: String -> Char -> Bool:
+## VerificaLetra :: String -> Char -> Bool:
 Verifica se uma determinada letra está presente na palavra.
 
 ## perdeVida :: IO Int:
@@ -54,5 +54,18 @@ separaPalavra: É uma função que toma uma string e a divide em uma lista de st
 verificaLetra: Verifica se uma letra está presente em uma palavra. Também não realiza efeitos colaterais, apenas retorna um booleano.
 
 Essas funções são puramente funcionais, o que é uma característica fundamental da programação funcional.
-##
+
+## 2. Uso de Imutabilidade
+No paradigma funcional, os dados são imutáveis. Ou seja, uma vez que uma estrutura de dados é criada, ela não pode ser alterada. Embora o código interaja com I/O e arquivos, as estruturas de dados internas do programa (listas, strings, etc.) são tratadas de maneira imutável:
+
+Listas: As listas, como na função separaPalavra, não são modificadas diretamente. Em vez disso, sempre que uma operação é realizada, uma nova lista é criada.
+
+sorteia: A função que realiza o sorteio não modifica a lista original, apenas retorna um valor selecionado, mantendo a imutabilidade da lista.
+
+## 3.Composição de Funções
+A programação funcional valoriza a composição de funções menores para formar soluções mais complexas. Embora o código não tenha explicitamente composição usando o operador (.), é possível observar a utilização de funções pequenas e reutilizáveis. Por exemplo:
+
+A função sorteiaEsalva compõe várias funções para formar um comportamento maior: ************* terminar
+
+Aqui, a função lê o arquivo, separa as palavras, sorteia uma e depois a salva. Cada função executa uma tarefa simples e essas funções são combinadas para formar a lógica completa.
 
