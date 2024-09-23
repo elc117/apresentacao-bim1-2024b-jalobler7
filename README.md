@@ -62,15 +62,28 @@ Listas: As listas, como na função separaPalavra, não são modificadas diretam
 
 sorteia: A função que realiza o sorteio não modifica a lista original, apenas retorna um valor selecionado, mantendo a imutabilidade da lista.
 
-## 3.Composição de Funções
+## 3. Composição de Funções
 A programação funcional valoriza a composição de funções menores para formar soluções mais complexas. Embora o código não tenha explicitamente composição usando o operador (.), é possível observar a utilização de funções pequenas e reutilizáveis. Por exemplo:
 
 A função sorteiaEsalva compõe várias funções para formar um comportamento maior: ************* terminar
 
 Aqui, a função lê o arquivo, separa as palavras, sorteia uma e depois a salva. Cada função executa uma tarefa simples e essas funções são combinadas para formar a lógica completa.
 
-## 4.Uso de Funções de Alta Ordem
+## 4. Uso de Funções de Alta Ordem
 
 As funções de alta ordem são funções que podem receber outras funções como argumentos ou retornar funções como resultado. No código, isso é observado em:
 - liftIO: Embora não seja uma função definida no código, o uso de liftIO para incorporar funções de I/O em um contexto monádico (dentro de Scotty) é um exemplo do uso de uma função de alta ordem. liftIO é uma função que toma uma ação de I/O e a "eleva" para dentro de um contexto monádico, permitindo que operações de I/O sejam usadas em uma cadeia de funções puramente funcionais.
+- 
+## 5. Side Effects Controlados
+Outro ponto interessante é como os efeitos colaterais (como leitura e escrita de arquivos) são controlados e isolados no código. Ao usar a monad IO, esses efeitos são mantidos separados da lógica puramente funcional, permitindo que o código seja mais modular e fácil de raciocinar.
+
+# Conclusão
+
+Os paradigmas de programação funcional no código podem ser percebidos por meio de:
+
+- Funções puramente funcionais que não causam efeitos colaterais.
+- Imutabilidade dos dados.
+- Composição de funções para formar lógicas mais complexas a partir de funções simples.
+
+  ## Esses conceitos fazem com que o código siga um estilo de programação funcional, mantendo a separação entre lógica funcional pura e operações que afetam o "mundo externo" (como manipulação de arquivos e controle de estado de jogo).
 
