@@ -69,3 +69,8 @@ A função sorteiaEsalva compõe várias funções para formar um comportamento 
 
 Aqui, a função lê o arquivo, separa as palavras, sorteia uma e depois a salva. Cada função executa uma tarefa simples e essas funções são combinadas para formar a lógica completa.
 
+## 4.Uso de Funções de Alta Ordem
+
+As funções de alta ordem são funções que podem receber outras funções como argumentos ou retornar funções como resultado. No código, isso é observado em:
+- liftIO: Embora não seja uma função definida no código, o uso de liftIO para incorporar funções de I/O em um contexto monádico (dentro de Scotty) é um exemplo do uso de uma função de alta ordem. liftIO é uma função que toma uma ação de I/O e a "eleva" para dentro de um contexto monádico, permitindo que operações de I/O sejam usadas em uma cadeia de funções puramente funcionais.
+
