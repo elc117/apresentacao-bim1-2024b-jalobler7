@@ -26,5 +26,10 @@ Sorteia um item de uma lista, gerando um índice aleatório e retornando o eleme
 Salva a palavra sorteada no arquivo palavraSorteada.txt.
 
 # retornaPalavraArq :: IO String:
-
 Lê a palavra salva no arquivo palavraSorteada.txt e a retorna.
+
+# temLetra :: Char -> IO String:
+Verifica se uma letra fornecida pelo usuário existe na palavra sorteada. Se sim, retorna "Letra Certa"; se não, incrementa o contador de vidas perdidas e retorna "Letra Errada".
+
+# erificaLetra :: String -> Char -> Bool:
+Verifica se uma determinada letra está presente na palavra.
