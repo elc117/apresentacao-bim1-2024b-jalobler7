@@ -44,3 +44,13 @@ Lê o arquivo vidas.txt, converte o conteúdo para um número inteiro e o retorn
 
 # zeraTudo :: IO ():
 Zera o número de vidas, salvando o valor 0 no arquivo vidas.txt.
+
+# Paradigmas da programação funcional encontrados no programa
+# 1. Funções Puramente Funcionais
+Funções puramente funcionais são aquelas que, dado o mesmo input, sempre produzem o mesmo output, sem efeitos colaterais. No código, algumas funções seguem essa filosofia, como:
+separaPalavra: É uma função que toma uma string e a divide em uma lista de strings. Dado um input, ela sempre retornará o mesmo resultado sem causar nenhum efeito colateral, como modificar variáveis externas ou interagir com I/O.
+verificaLetra: Verifica se uma letra está presente em uma palavra. Também não realiza efeitos colaterais, apenas retorna um booleano.
+
+Essas funções são puramente funcionais, o que é uma característica fundamental da programação funcional.
+# 
+
