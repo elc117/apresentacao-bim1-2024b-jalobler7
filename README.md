@@ -8,10 +8,6 @@ Este código em Haskell cria um servidor web usando o framework Scotty, com endp
 # Analisando as funções implementadas 
 
 ## sorteiaEsalva :: IO ():
-
-Lê o conteúdo do arquivo texto.txt, onde há uma lista de palavras separadas por vírgulas.
-Separa as palavras, sorteia uma delas aleatoriamente, e a salva em um arquivo palavraSorteada.txt.
-
 ```
 sorteiaEsalva :: IO ()
 sorteiaEsalva = do
@@ -20,38 +16,115 @@ sorteiaEsalva = do
   palavraSorteada <- sorteia listaPalavras
   salvaPalavra palavraSorteada
 ```
+Lê o conteúdo do arquivo texto.txt, onde há uma lista de palavras separadas por vírgulas.
+Separa as palavras, sorteia uma delas aleatoriamente, e a salva em um arquivo palavraSorteada.txt.
+
+
 
 ## lerArquivo :: FilePath -> IO String:
+```
+lerArquivo :: FilePath -> IO String
+lerArquivo arquivo = readFile arquivo
+```
 Lê o conteúdo de um arquivo e retorna uma String. É usada para ler arquivos como texto.txt e palavraSorteada.txt.
 
+
 ## separaPalavra :: String -> [String]:
+```
+sorteiaEsalva :: IO ()
+sorteiaEsalva = do
+  conteudo <- lerArquivo "texto.txt"
+  let listaPalavras = separaPalavra conteudo
+  palavraSorteada <- sorteia listaPalavras
+  salvaPalavra palavraSorteada
+```
 Usa splitOn para dividir a string em uma lista de palavras, usando vírgulas como delimitador
 
 ## sorteia :: [a] -> IO a:
+```
+sorteiaEsalva :: IO ()
+sorteiaEsalva = do
+  conteudo <- lerArquivo "texto.txt"
+  let listaPalavras = separaPalavra conteudo
+  palavraSorteada <- sorteia listaPalavras
+  salvaPalavra palavraSorteada
+```
 Sorteia um item de uma lista, gerando um índice aleatório e retornando o elemento correspondente.
 
 ## salvaPalavra :: String -> IO ():
+```
+separaPalavra :: String -> [String]
+separaPalavra = splitOn ","
+```
 Salva a palavra sorteada no arquivo palavraSorteada.txt.
 
 ## retornaPalavraArq :: IO String:
+```
+retornaPalavraArq :: IO String
+retornaPalavraArq = lerArquivo "palavraSorteada.txt"
+```
 Lê a palavra salva no arquivo palavraSorteada.txt e a retorna.
 
 ## temLetra :: Char -> IO String:
+```
+temLetra :: Char -> IO String
+temLetra letra = do
+    palavra <- retornaPalavraArq
+    if verificaLetra palavra letra
+        then return "Letra Certa"
+        else perdeVida >> return "Letra Errada"
+```
 Verifica se uma letra fornecida pelo usuário existe na palavra sorteada. Se sim, retorna "Letra Certa"; se não, incrementa o contador de vidas perdidas e retorna "Letra Errada".
 
 ## VerificaLetra :: String -> Char -> Bool:
+```
+verificaLetra :: String -> Char -> Bool
+verificaLetra palavra letra = elem letra palavra
+```
 Verifica se uma determinada letra está presente na palavra.
 
 ## perdeVida :: IO Int:
+```
+perdeVida :: IO Int
+perdeVida = do
+    numero <- leArqVida
+    let novoNumero = numero + 1
+    B.writeFile "vidas.txt" (B.pack (show novoNumero))
+    return novoNumero
+```
 Lê o número de vidas perdidas do arquivo vidas.txt, incrementa o número, e salva o novo valor no mesmo arquivo. Retorna o novo número de vidas.
 
 ## verificaSePerdeu :: IO String:
+```
+sorteiaEsalva :: IO ()
+sorteiaEsalva = do
+  conteudo <- lerArquivo "texto.txt"
+  let listaPalavras = separaPalavra conteudo
+  palavraSorteada <- sorteia listaPalavras
+  salvaPalavra palavraSorteada
+```
 Verifica se o jogador perdeu o jogo (se o número de vidas é maior ou igual a 6). Caso contrário, retorna quantas vidas restam.
 
 ## leArqVida :: IO Int:
+```
+sorteiaEsalva :: IO ()
+sorteiaEsalva = do
+  conteudo <- lerArquivo "texto.txt"
+  let listaPalavras = separaPalavra conteudo
+  palavraSorteada <- sorteia listaPalavras
+  salvaPalavra palavraSorteada
+```
 Lê o arquivo vidas.txt, converte o conteúdo para um número inteiro e o retorna.
 
 ## zeraTudo :: IO ():
+```
+sorteiaEsalva :: IO ()
+sorteiaEsalva = do
+  conteudo <- lerArquivo "texto.txt"
+  let listaPalavras = separaPalavra conteudo
+  palavraSorteada <- sorteia listaPalavras
+  salvaPalavra palavraSorteada
+```
 Zera o número de vidas, salvando o valor 0 no arquivo vidas.txt.
 
 # Paradigmas da programação funcional encontrados no programa
