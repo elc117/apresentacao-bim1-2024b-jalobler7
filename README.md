@@ -13,7 +13,6 @@ Lê o conteúdo do arquivo texto.txt, onde há uma lista de palavras separadas p
 Separa as palavras, sorteia uma delas aleatoriamente, e a salva em um arquivo palavraSorteada.txt.
 
 # lerArquivo :: FilePath -> IO String:
-
 Lê o conteúdo de um arquivo e retorna uma String. É usada para ler arquivos como texto.txt e palavraSorteada.txt.
 
 # separaPalavra :: String -> [String]:
@@ -33,3 +32,15 @@ Verifica se uma letra fornecida pelo usuário existe na palavra sorteada. Se sim
 
 # erificaLetra :: String -> Char -> Bool:
 Verifica se uma determinada letra está presente na palavra.
+
+# perdeVida :: IO Int:
+Lê o número de vidas perdidas do arquivo vidas.txt, incrementa o número, e salva o novo valor no mesmo arquivo. Retorna o novo número de vidas.
+
+# verificaSePerdeu :: IO String:
+Verifica se o jogador perdeu o jogo (se o número de vidas é maior ou igual a 6). Caso contrário, retorna quantas vidas restam.
+
+# leArqVida :: IO Int:
+Lê o arquivo vidas.txt, converte o conteúdo para um número inteiro e o retorna.
+
+# zeraTudo :: IO ():
+Zera o número de vidas, salvando o valor 0 no arquivo vidas.txt.
