@@ -31,12 +31,8 @@ Lê o conteúdo de um arquivo e retorna uma String. É usada para ler arquivos c
 
 ## separaPalavra :: String -> [String]:
 ```
-sorteiaEsalva :: IO ()
-sorteiaEsalva = do
-  conteudo <- lerArquivo "texto.txt"
-  let listaPalavras = separaPalavra conteudo
-  palavraSorteada <- sorteia listaPalavras
-  salvaPalavra palavraSorteada
+separaPalavra :: String -> [String]
+separaPalavra = splitOn ","
 ```
 Usa splitOn para dividir a string em uma lista de palavras, usando vírgulas como delimitador
 
@@ -96,34 +92,29 @@ Lê o número de vidas perdidas do arquivo vidas.txt, incrementa o número, e sa
 
 ## verificaSePerdeu :: IO String:
 ```
-sorteiaEsalva :: IO ()
-sorteiaEsalva = do
-  conteudo <- lerArquivo "texto.txt"
-  let listaPalavras = separaPalavra conteudo
-  palavraSorteada <- sorteia listaPalavras
-  salvaPalavra palavraSorteada
+verificaSePerdeu :: IO String
+verificaSePerdeu = do
+    vidas <- leArqVida
+    let texto = if vidas >= 6 then "Voce se matou" else "Voce tem " ++ show (6 - vidas) ++ " vidas"
+    return texto
 ```
 Verifica se o jogador perdeu o jogo (se o número de vidas é maior ou igual a 6). Caso contrário, retorna quantas vidas restam.
 
 ## leArqVida :: IO Int:
 ```
-sorteiaEsalva :: IO ()
-sorteiaEsalva = do
-  conteudo <- lerArquivo "texto.txt"
-  let listaPalavras = separaPalavra conteudo
-  palavraSorteada <- sorteia listaPalavras
-  salvaPalavra palavraSorteada
+perdeVida :: IO Int
+perdeVida = do
+    numero <- leArqVida
+    let novoNumero = numero + 1
+    B.writeFile "vidas.txt" (B.pack (show novoNumero))
+    return novoNumero
 ```
 Lê o arquivo vidas.txt, converte o conteúdo para um número inteiro e o retorna.
 
 ## zeraTudo :: IO ():
 ```
-sorteiaEsalva :: IO ()
-sorteiaEsalva = do
-  conteudo <- lerArquivo "texto.txt"
-  let listaPalavras = separaPalavra conteudo
-  palavraSorteada <- sorteia listaPalavras
-  salvaPalavra palavraSorteada
+zeraTudo :: IO ()
+zeraTudo = B.writeFile "vidas.txt" (B.pack (show 0))
 ```
 Zera o número de vidas, salvando o valor 0 no arquivo vidas.txt.
 
