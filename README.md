@@ -157,3 +157,7 @@ Os paradigmas de programação funcional no código podem ser percebidos por mei
 
   ## Esses conceitos fazem com que o código siga um estilo de programação funcional, mantendo a separação entre lógica funcional pura e operações que afetam o "mundo externo" (como manipulação de arquivos e controle de estado de jogo).
 
+
+## Link de acesso ao código Main do jogo 
+
+-  https://github.com/diovani-f/TrabHaskell/tree/main
