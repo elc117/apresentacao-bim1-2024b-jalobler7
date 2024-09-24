@@ -38,12 +38,9 @@ Usa splitOn para dividir a string em uma lista de palavras, usando vírgulas com
 
 ## sorteia :: [a] -> IO a:
 ```
-sorteiaEsalva :: IO ()
-sorteiaEsalva = do
-  conteudo <- lerArquivo "texto.txt"
-  let listaPalavras = separaPalavra conteudo
-  palavraSorteada <- sorteia listaPalavras
-  salvaPalavra palavraSorteada
+sorteia xs = do
+  n <- randomRIO (0, (length xs) - 1)
+  return $ xs !! n
 ```
 Sorteia um item de uma lista, gerando um índice aleatório e retornando o elemento correspondente.
 
@@ -56,8 +53,8 @@ Salva a palavra sorteada no arquivo palavraSorteada.txt.
 
 ## retornaPalavraArq :: IO String:
 ```
-retornaPalavraArq :: IO String
-retornaPalavraArq = lerArquivo "palavraSorteada.txt"
+salvaPalavra :: String -> IO ()
+salvaPalavra a =  B.writeFile "palavraSorteada.txt" (B.pack (show a))
 ```
 Lê a palavra salva no arquivo palavraSorteada.txt e a retorna.
 
