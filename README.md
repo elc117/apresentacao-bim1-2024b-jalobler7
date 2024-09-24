@@ -46,15 +46,15 @@ Sorteia um item de uma lista, gerando um índice aleatório e retornando o eleme
 
 ## salvaPalavra :: String -> IO ():
 ```
-separaPalavra :: String -> [String]
-separaPalavra = splitOn ","
+salvaPalavra :: String -> IO ()
+salvaPalavra a =  B.writeFile "palavraSorteada.txt" (B.pack (show a))
 ```
 Salva a palavra sorteada no arquivo palavraSorteada.txt.
 
 ## retornaPalavraArq :: IO String:
 ```
-salvaPalavra :: String -> IO ()
-salvaPalavra a =  B.writeFile "palavraSorteada.txt" (B.pack (show a))
+retornaPalavraArq :: IO String
+retornaPalavraArq = lerArquivo "palavraSorteada.txt"
 ```
 Lê a palavra salva no arquivo palavraSorteada.txt e a retorna.
 
